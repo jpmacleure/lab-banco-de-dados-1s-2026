@@ -1,13 +1,13 @@
-/**  */
+/*  */
 
-/** DELETA O SCHEMA DO BD SE EXISTIR */
+/* DELETA O SCHEMA DO BD SE EXISTIR */
 DROP DATABASE IF EXISTS  biblioteca_pessoal_1s2026;
 
-/** CRIA E SELECIONA UM SCHEMA DE BD */
+/* CRIA E SELECIONA UM SCHEMA DE BD */
 CREATE DATABASE biblioteca_pessoal_1s2026;
 USE biblioteca_pessoal_1s2026;
 
-/** CRIA TABELAS, RELAÇÕES E RESTRIÇÕES */
+/* CRIA TABELAS, RELAÇÕES E RESTRIÇÕES */
 CREATE TABLE usuario(
 	id_usuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255) NOT NULL,
@@ -28,8 +28,8 @@ CREATE TABLE categoria(
 CREATE TABLE autor(
 	id_autor INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255) NOT NULL UNIQUE,
-    ano_nascimento YEAR,
-    ano_morte YEAR,
+    ano_nascimento INT,
+    ano_morte INT,
     apresentacao TEXT,
     data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -53,7 +53,7 @@ CREATE TABLE livro(
     id_categoria INT, 
     titulo VARCHAR(255) NOT NULL,
     sinopse TEXT,
-    ano_publicacao YEAR,
+    ano_publicacao INT,
     lido BOOLEAN DEFAULT(0),
     data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     data_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
